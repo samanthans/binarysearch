@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Agenda Telefônica</title>
+  </head>
+  <body>
+    <div class="container card">
+      <h1>Lista Telefônica</h1>
+      <form class="add-contact-form" action="/add" method="POST">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="phone">Número de Telefone:</label>
+        <input type="text" id="phone" name="phone" required />
+        <button type="submit">Adicionar Contato</button>
+      </form>
+      <br />
+      <a href="/search">Buscar um Contato</a>
+    </div>
+  </body>
+</html>
