@@ -46,16 +46,27 @@
           <input type="text" id="search_name" name="name" required />
           <button type="submit">Buscar</button>
         </form>
+        {% if result %}
+        <div>
+          <h3>Contato Encontrado:</h3>
+          <p>Nome: {{ result.name }}</p>
+          <p>Telefone: {{ result.phone }}</p>
+        </div>
+        {% elif result == None and steps %}
+        <h3>Nenhum Contato Encontrado</h3>
+        <p>Desculpe, não conseguimos encontrar um contato com esse nome.</p>
+        {% endif %}
         {% if steps %}
-        <h3>Etapas da Busca Binária</h3>
+
         <div class="steps-table-wrapper">
+          <h3>Etapas da Busca Binária</h3>  
           <table class="steps-table">
             <thead>
               <tr>
-                <th>low</th>
-                <th>mid</th>
-                <th>high</th>
-                <th>Nome em mid</th>
+                <th>Esquerda</th>
+                <th>Meio</th>
+                <th>Direita</th>
+                <th>Nome no meio</th>
                 <th>Comparando com</th>
               </tr>
             </thead>
@@ -73,16 +84,7 @@
           </table>
         </div>
         {% endif %}
-        {% if result %}
-        <div>
-          <h3>Contato Encontrado:</h3>
-          <p>Nome: {{ result.name }}</p>
-          <p>Telefone: {{ result.phone }}</p>
-        </div>
-        {% elif result == None and steps %}
-        <h3>Nenhum Contato Encontrado</h3>
-        <p>Desculpe, não conseguimos encontrar um contato com esse nome.</p>
-        {% endif %}
+
       </div>
     </div>
   </body>

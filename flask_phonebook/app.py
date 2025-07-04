@@ -46,9 +46,17 @@ def load_contacts_from_csv(filepath):
 
 
 def save_contact_to_csv(filepath, contact):
-    with open(filepath, "a", newline="", encoding="utf-8") as csvfile:
+    # Lê todos os contatos existentes
+    contacts = load_contacts_from_csv(filepath)
+    contacts.append(contact)
+    # Ordena os contatos por nome
+    contacts.sort(key=lambda x: x["name"])
+    # Sobrescreve o CSV com todos os contatos ordenados
+    with open(filepath, "w", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow([contact["name"], contact["phone"]])
+        writer.writerow(["nome", "telefone"])  # Cabeçalho
+        for c in contacts:
+            writer.writerow([c["name"], c["phone"]])
 
 
 # Carrega contatos do CSV ao iniciar o app
