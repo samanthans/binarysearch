@@ -16,9 +16,7 @@ flask-phonebook
 ├── static
 │   └── style.css        # Estilos CSS para a aplicação
 ├── templates
-│   ├── base.html        # Template base para a aplicação
-│   ├── index.html       # Página principal para adicionar contatos
-│   └── search.html      # Página para exibir resultados da busca
+│   ├── index.html       # Página principal para adicionar contatos e exibir resultados da busca
 └── README.md            # Documentação do projeto
 ```
 
@@ -27,7 +25,7 @@ flask-phonebook
 Para executar esta aplicação, você precisa ter Python e Flask instalados. Você pode instalar os pacotes necessários usando o seguinte comando:
 
 ```
-pip install -r requirements.txt
+pip install -r requirements.txt # use uv sync
 ```
 
 ## Executando a Aplicação
